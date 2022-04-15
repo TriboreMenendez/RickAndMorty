@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_name">Имя по умолчанию</string>
+    <string name="default_race">Раса по умолчанию</string>
+    <string name="default_gender">Пол по умолчанию</string>
+    <string name="default_image">Аватар по умолчанию</string>
+
+    <string name="name">Имя:</string>
+    <string name="race">Раса:</string>
+    <string name="gender">Пол:</string>
+
+</resources>

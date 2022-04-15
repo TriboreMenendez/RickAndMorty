@@ -1,3 +1,13 @@
 <resources>
-    <string name="app_name">RickAndMorty</string>
+    <string name="app_name" translatable="false">RickAndMorty</string>
+
+    <string name="default_name">Default name</string>
+    <string name="default_race">Default race</string>
+    <string name="default_gender">Default gender</string>
+    <string name="default_image">Default image</string>
+
+    <string name="name">Name:</string>
+    <string name="race">Race:</string>
+    <string name="gender">Gender:</string>
+
 </resources>
