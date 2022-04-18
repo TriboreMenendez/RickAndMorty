@@ -8,16 +8,16 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import tribore.rickandmorty.R
 import tribore.rickandmorty.databinding.ItemForRecyclerBinding
-import tribore.rickandmorty.domain.models.PersonDomainModel
+import tribore.rickandmorty.domain.models.CharacterDomainModel
 
-class MainAdapter(private val onClickForInfo: (PersonDomainModel) -> Unit) :
-    ListAdapter<PersonDomainModel, MainAdapter.MainViewHolder>(DiffCallback) {
+class MainAdapter(private val onClickForInfo: (CharacterDomainModel) -> Unit) :
+    ListAdapter<CharacterDomainModel, MainAdapter.MainViewHolder>(DiffCallback) {
 
 
     inner class MainViewHolder(private val binding: ItemForRecyclerBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(item: PersonDomainModel) {
+        fun bind(item: CharacterDomainModel) {
             binding.tvName.text = item.name
             binding.tvGender.text = item.gender
             binding.tvRace.text = item.race
@@ -34,17 +34,17 @@ class MainAdapter(private val onClickForInfo: (PersonDomainModel) -> Unit) :
 
     }
 
-    companion object DiffCallback : DiffUtil.ItemCallback<PersonDomainModel>() {
+    companion object DiffCallback : DiffUtil.ItemCallback<CharacterDomainModel>() {
         override fun areItemsTheSame(
-            oldItem: PersonDomainModel,
-            newItem: PersonDomainModel
+            oldItem: CharacterDomainModel,
+            newItem: CharacterDomainModel
         ): Boolean {
             return oldItem == newItem
         }
 
         override fun areContentsTheSame(
-            oldItem: PersonDomainModel,
-            newItem: PersonDomainModel
+            oldItem: CharacterDomainModel,
+            newItem: CharacterDomainModel
         ): Boolean {
             return oldItem == newItem
         }

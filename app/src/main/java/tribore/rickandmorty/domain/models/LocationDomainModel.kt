@@ -1,5 +1,5 @@
 package tribore.rickandmorty.domain.models
 
-data class Location(
+data class LocationDomainModel(
     val name: String
 )

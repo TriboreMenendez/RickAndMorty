@@ -1,14 +1,15 @@
 package tribore.rickandmorty.data.repository
 
-import tribore.rickandmorty.data.models.Results
-import tribore.rickandmorty.domain.models.Location
-import tribore.rickandmorty.domain.models.PersonDomainModel
+import tribore.rickandmorty.data.models.ResultsApiModel
+import tribore.rickandmorty.domain.models.LocationDomainModel
+import tribore.rickandmorty.domain.models.CharacterDomainModel
 
-fun Results.toDomain(): PersonDomainModel {
+fun ResultsApiModel.toDomain(): CharacterDomainModel {
 
-    val location = Location(this.location.name)
+    val location = LocationDomainModel(this.location.name)
 
-    return PersonDomainModel(
+    return CharacterDomainModel(
+        id = this.id,
         name = this.name,
         race = this.species,
         gender = this.gender,
