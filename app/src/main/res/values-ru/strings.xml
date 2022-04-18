@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="default_name">Имя по умолчанию</string>
-    <string name="default_race">Раса по умолчанию</string>
-    <string name="default_gender">Пол по умолчанию</string>
-    <string name="default_image">Аватар по умолчанию</string>
+    <string name="default_name">Рик</string>
+    <string name="default_race">Человек</string>
+    <string name="default_gender">Мужчина</string>
+    <string name="default_status">Жив</string>
+    <string name="default_location">Земля</string>
+    <string name="default_number_of_episodes">1</string>
 
     <string name="name">Имя:</string>
     <string name="race">Раса:</string>
     <string name="gender">Пол:</string>
+    <string name="status">Статус:</string>
+    <string name="current_location">Текущее местоположение:</string>
+    <string name="number_of_episodes">Количество эпизодов:</string>
 
     <string name="error_message">Ошибка интернет соединения.</string>
 </resources>

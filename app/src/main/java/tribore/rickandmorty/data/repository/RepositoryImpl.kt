@@ -1,8 +1,8 @@
 package tribore.rickandmorty.data.repository
 
-import tribore.rickandmorty.data.models.ResponseResult
 import tribore.rickandmorty.data.network.NetworkApi
-import tribore.rickandmorty.domain.models.ResponseResultDomainModel
+import tribore.rickandmorty.domain.models.AllResultDomainModel
+import tribore.rickandmorty.domain.models.CharacterDomainModel
 import tribore.rickandmorty.domain.repository.RemoteRepository
 
 class RepositoryImpl(private val network: NetworkApi) : RemoteRepository {
@@ -11,11 +11,15 @@ class RepositoryImpl(private val network: NetworkApi) : RemoteRepository {
     private var lastRequestedPage = 1
     private var isRequestInProgress = false
 
-    override suspend fun getAll(): ResponseResultDomainModel {
+    override suspend fun getAll(): AllResultDomainModel {
         return checkingTheResult()
     }
 
-    private suspend fun checkingTheResult(): ResponseResultDomainModel {
+    override suspend fun getOne(id: Int): CharacterDomainModel {
+        return network.getOneCharacter(id = id).toDomain()
+    }
+
+    private suspend fun checkingTheResult(): AllResultDomainModel {
         if (moreResult && !isRequestInProgress) {
             isRequestInProgress = true
             return try {
@@ -23,12 +27,12 @@ class RepositoryImpl(private val network: NetworkApi) : RemoteRepository {
                 val allCharacterResult = response.results.map { it.toDomain() }
                 if (response.info.next != null) lastRequestedPage++ else moreResult = false
                 isRequestInProgress = false
-                ResponseResultDomainModel(resultList = allCharacterResult)
+                AllResultDomainModel(resultList = allCharacterResult)
             } catch (e: Exception) {
                 isRequestInProgress = false
-                ResponseResultDomainModel(errorResponse = e)
+                AllResultDomainModel(errorResponse = e)
             }
         }
-        else return ResponseResultDomainModel()
+        else return AllResultDomainModel()
     }
 }

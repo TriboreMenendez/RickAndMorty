@@ -21,6 +21,9 @@ class MainAdapter(private val onClickForInfo: (CharacterDomainModel) -> Unit) :
             binding.tvName.text = item.name
             binding.tvGender.text = item.gender
             binding.tvRace.text = item.race
+            binding.root.setOnClickListener {
+                onClickForInfo(item)
+            }
 
             Glide
                 .with(itemView)

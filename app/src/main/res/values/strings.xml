@@ -1,14 +1,20 @@
 <resources>
     <string name="app_name" translatable="false">RickAndMorty</string>
+    <string name="default_image" translatable="false">Avatar character</string>
 
-    <string name="default_name">Default name</string>
-    <string name="default_race">Default race</string>
-    <string name="default_gender">Default gender</string>
-    <string name="default_image">Default image</string>
+    <string name="default_name">Rick</string>
+    <string name="default_race">Human</string>
+    <string name="default_gender">Male</string>
+    <string name="default_status">Alive</string>
+    <string name="default_location">Earth</string>
+    <string name="default_number_of_episodes">30</string>
 
     <string name="name">Name:</string>
     <string name="race">Race:</string>
     <string name="gender">Gender:</string>
+    <string name="status">Status:</string>
+    <string name="current_location">Current location:</string>
+    <string name="number_of_episodes">Number of episodes:</string>
 
     <string name="error_message">Internet connection error.</string>
 </resources>

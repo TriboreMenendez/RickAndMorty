@@ -1,4 +1,4 @@
-package tribore.rickandmorty.presentation.ui
+package tribore.rickandmorty.presentation.screens.home
 
 import android.os.Bundle
 import android.util.Log
@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import dagger.hilt.android.AndroidEntryPoint
@@ -15,13 +16,12 @@ import tribore.rickandmorty.R
 import tribore.rickandmorty.databinding.FragmentHomeBinding
 import tribore.rickandmorty.domain.models.CharacterDomainModel
 import tribore.rickandmorty.presentation.adapter.MainAdapter
-import tribore.rickandmorty.presentation.viewmodels.MainViewModel
 import tribore.rickandmorty.util.LoadingStatus
 
 @AndroidEntryPoint
 class HomeFragment : Fragment() {
 
-    private val viewModel: MainViewModel by viewModels()
+    private val viewModel: HomeViewModel by viewModels()
     private val binding: FragmentHomeBinding by lazy {
         FragmentHomeBinding.inflate(layoutInflater)
     }
@@ -49,10 +49,13 @@ class HomeFragment : Fragment() {
         return binding.root
     }
 
+    // лямбда для элемента ресайклера
     private fun onClickItemRecyclerView(itemCharacter: CharacterDomainModel) {
-
+        val id = itemCharacter.id
+        findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToAboutInfoFragment(id))
     }
 
+    // Обработчик прокрутки ресайклера
     private fun scrollRecyclerView() {
         val layoutManager = rcView.layoutManager as LinearLayoutManager
 

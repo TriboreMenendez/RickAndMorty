@@ -10,7 +10,8 @@ import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import tribore.rickandmorty.data.network.NetworkApi
 import tribore.rickandmorty.data.repository.RepositoryImpl
-import tribore.rickandmorty.domain.usecase.GetAllPersonUseCase
+import tribore.rickandmorty.domain.usecase.GetAllCharacterUseCase
+import tribore.rickandmorty.domain.usecase.GetOneCharacterUseCase
 import tribore.rickandmorty.util.Constant
 import javax.inject.Singleton
 
@@ -50,8 +51,14 @@ class Module {
 
     @Provides
     @Singleton
-    fun provideGetImageUseCase(repo: RepositoryImpl): GetAllPersonUseCase {
-        return GetAllPersonUseCase(repo)
+    fun provideGetImageUseCase(repo: RepositoryImpl): GetAllCharacterUseCase {
+        return GetAllCharacterUseCase(repo)
+    }
+
+    @Provides
+    @Singleton
+    fun provideGetOneCharacterUseCase(repo: RepositoryImpl): GetOneCharacterUseCase{
+        return GetOneCharacterUseCase(repo)
     }
 
 }
